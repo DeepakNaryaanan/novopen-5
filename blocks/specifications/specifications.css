@@ -1,0 +1,38 @@
+.specifications {
+  max-width: var(--measure-compact);
+  color: var(--color-text-primary);
+}
+
+.specifications dl {
+  margin: 0;
+}
+
+.specifications .specifications-item {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  overflow-wrap: anywhere;
+}
+
+.specifications .specifications-item:first-child {
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.specifications dt {
+  min-width: 0;
+  font-weight: 700;
+}
+
+.specifications dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+@media (width >= 632px) {
+  .specifications .specifications-item {
+    grid-template-columns: minmax(10rem, 1fr) minmax(0, 2fr);
+    gap: var(--space-6);
+  }
+}

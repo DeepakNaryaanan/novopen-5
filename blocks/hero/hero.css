@@ -5,33 +5,111 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
+  box-sizing: border-box;
   min-height: 300px;
+  padding: var(--space-10) var(--space-6);
+  isolation: isolate;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero h1,
+.hero:not(.product) h2 {
+  max-width: var(--width-content);
+  margin-inline: auto;
+  color: var(--color-text-on-media);
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
   inset: 0;
-  object-fit: cover;
   box-sizing: border-box;
 }
 
+.hero:not(.product) picture {
+  z-index: -1;
+}
+
 .hero img {
-  object-fit: cover;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero.product {
+  display: grid;
+  width: 100vw;
+  min-height: 420px;
+  margin-inline: calc(50% - 50vw);
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-brand-primary);
+  color: var(--color-text-on-media);
+}
+
+.hero.product::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--overlay-media-scrim);
+  content: "";
+}
+
+.hero.product .hero-media {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+}
+
+.hero.product .hero-media picture {
+  display: block;
   height: 100%;
 }
 
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
+.hero.product .hero-media img {
+  display: block;
+  object-position: 44% 37%;
+}
+
+.hero.product .hero-content {
+  align-self: end;
+  box-sizing: border-box;
+  width: min(100%, var(--width-content));
+  margin-inline: auto;
+  padding: var(--space-12) var(--space-6);
+  overflow-wrap: anywhere;
+}
+
+.hero.product .hero-content p {
+  max-width: var(--measure-copy);
+  margin: 0 0 var(--space-2);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hero.product .hero-content h1 {
+  max-width: 11ch;
+  margin: 0;
+  font-size: var(--type-size-display);
+  font-weight: 700;
+  line-height: var(--type-leading-display);
+}
+
+@media (width >= 760px) {
+  .hero.product .hero-content {
+    padding-inline: var(--space-8);
+    padding-bottom: var(--space-16);
+  }
+}
+
+@media (width >= 992px) {
+  .hero.product {
+    min-height: min(72vh, 720px);
+  }
+}
+
+@media (width >= 1272px) {
+  .hero.product .hero-content {
+    padding-bottom: var(--space-20);
   }
 }

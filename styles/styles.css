@@ -1,3 +1,5 @@
+@import url('./config/overrides.css');
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -322,4 +324,23 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.warm {
+  background-color: var(--color-surface-warm);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: var(--space-12) 0;
+}
+
+@media (width >= 760px) {
+  main .section.warm {
+    padding: var(--space-16) 0;
+  }
+}
+
+@media (width >= 1272px) {
+  main .section.warm {
+    padding: var(--space-20) 0;
+  }
 }

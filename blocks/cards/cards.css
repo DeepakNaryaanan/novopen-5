@@ -1,19 +1,21 @@
 .cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface-page);
+  color: var(--color-text-primary);
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: var(--space-4);
+  overflow-wrap: anywhere;
 }
 
 .cards .cards-card-image {
@@ -22,6 +24,113 @@
 
 .cards > ul > li img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards.downloads > ul,
+.cards.promotional > ul {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cards.downloads .cards-card {
+  border-radius: var(--radius-s);
+  background-color: var(--color-surface-subtle);
+}
+
+.cards.downloads .cards-card-body {
+  margin: 0;
+}
+
+.cards.downloads .cards-card-body > :first-child,
+.cards.promotional .cards-card-body > :first-child {
+  margin-top: 0;
+}
+
+.cards.downloads .cards-card-body > :last-child,
+.cards.promotional .cards-card-body > :last-child {
+  margin-bottom: 0;
+}
+
+.cards.downloads a:any-link,
+.cards.promotional a:any-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--color-interactive-default);
+  text-decoration: underline;
+  text-underline-offset: var(--space-1);
+  transition:
+    color var(--motion-duration-fast) var(--motion-easing-standard),
+    background-color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.cards.downloads a:any-link {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+}
+
+.cards.downloads h3 {
+  margin: 0;
+}
+
+.cards.downloads h3 + p {
+  margin: 0;
+  padding: 0 var(--space-4) var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+.cards.downloads a:hover,
+.cards.promotional a:hover {
+  color: var(--color-interactive-hover);
+  text-decoration-thickness: 2px;
+}
+
+.cards.downloads a:active,
+.cards.promotional a:active {
+  color: var(--color-interactive-active);
+}
+
+.cards.downloads a:focus-visible,
+.cards.promotional a:focus-visible {
+  outline: 3px solid var(--color-interactive-focus);
+  outline-offset: 3px;
+}
+
+.cards.promotional .cards-card {
+  overflow: visible;
+  border-radius: var(--radius-m);
+}
+
+.cards.promotional .cards-card-image {
+  overflow: hidden;
+  border-start-start-radius: var(--radius-m);
+  border-start-end-radius: var(--radius-m);
+}
+
+.cards.promotional > ul > li img {
+  aspect-ratio: 8 / 3;
+  object-fit: cover;
+}
+
+@media (width >= 760px) {
+  .cards.downloads > ul,
+  .cards.promotional > ul {
+    grid-template-columns: repeat(2, minmax(var(--width-card-min), 1fr));
+  }
+}
+
+@media (width >= 992px) {
+  .cards.downloads > ul {
+    grid-template-columns: repeat(3, minmax(var(--width-card-min), 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cards.downloads a:any-link,
+  .cards.promotional a:any-link {
+    transition-duration: 0.01ms;
+  }
 }

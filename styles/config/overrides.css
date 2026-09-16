@@ -1,0 +1,62 @@
+:root {
+  --color-brand-primary: #001965;
+  --color-surface-page: var(--background-color);
+  --color-surface-subtle: var(--light-color);
+  --color-surface-warm: #eeeae4;
+  --color-text-primary: var(--text-color);
+  --color-text-secondary: var(--dark-color);
+  --color-text-on-media: #fff;
+  --color-text-disabled: var(--dark-color);
+  --color-surface-disabled: var(--light-color);
+  --color-border-subtle: #dadada;
+  --color-interactive-default: var(--link-color);
+  --color-interactive-hover: var(--link-hover-color);
+  --color-interactive-active: var(--color-brand-primary);
+  --color-interactive-focus: #005ad2;
+  --overlay-media-scrim:
+    linear-gradient(
+      to top,
+      rgb(0 0 0 / 72%) 0%,
+      rgb(0 0 0 / 68%) 32%,
+      rgb(0 0 0 / 32%) 68%,
+      rgb(0 0 0 / 8%) 100%
+    );
+  --type-size-display: clamp(3rem, 7vw + 0.5rem, 7.875rem);
+  --type-leading-display: 1.02;
+  --motion-duration-fast: 160ms;
+  --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-pill: 999px;
+  --width-content: 1200px;
+  --width-card-min: 280px;
+  --measure-copy: 65ch;
+  --measure-compact: 48rem;
+}
+
+[data-eds-theme="dark"] {
+  --color-brand-primary: #b3d4fc;
+  --color-surface-page: #131313;
+  --color-surface-subtle: #242424;
+  --color-surface-warm: #242424;
+  --color-text-primary: #f8f8f8;
+  --color-text-secondary: #d4d7dc;
+  --color-text-on-media: #fff;
+  --color-text-disabled: #939aa7;
+  --color-surface-disabled: #333;
+  --color-border-subtle: #70757f;
+  --color-interactive-default: #b3d4fc;
+  --color-interactive-hover: #fff;
+  --color-interactive-active: #d4d7dc;
+  --color-interactive-focus: #b3d4fc;
+}

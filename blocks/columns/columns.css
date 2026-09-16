@@ -4,7 +4,9 @@
 }
 
 .columns img {
+  display: block;
   width: 100%;
+  height: auto;
 }
 
 .columns > div > div {
@@ -19,7 +21,63 @@
   display: block;
 }
 
-@media (width >= 900px) {
+.columns.product-intro,
+.columns.feature {
+  color: var(--color-text-primary);
+}
+
+.columns.product-intro .columns-row,
+.columns.feature .columns-row {
+  display: grid;
+  gap: var(--space-8);
+  overflow-wrap: anywhere;
+}
+
+.columns.product-intro .columns-media,
+.columns.feature .columns-media {
+  min-width: 0;
+  line-height: 0;
+}
+
+.columns.product-intro .columns-media picture,
+.columns.feature .columns-media picture {
+  display: block;
+}
+
+.columns.product-intro .columns-media img,
+.columns.feature .columns-media img {
+  width: 100%;
+  max-height: 36rem;
+  object-fit: contain;
+}
+
+.columns.product-intro .columns-content,
+.columns.feature .columns-content {
+  align-self: center;
+  min-width: 0;
+  max-width: var(--measure-copy);
+}
+
+.columns.product-intro .columns-content > :first-child,
+.columns.feature .columns-content > :first-child {
+  margin-top: 0;
+}
+
+.columns.feature .columns-content ul {
+  padding-inline-start: var(--space-6);
+}
+
+.columns.feature .columns-content li + li {
+  margin-top: var(--space-2);
+}
+
+.columns.feature .columns-content small {
+  color: var(--color-text-secondary);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+@media (width >= 992px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
@@ -29,5 +87,27 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+@media (width >= 992px) {
+  .columns.product-intro .columns-row,
+  .columns.feature .columns-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .columns.product-intro .columns-row-no-media,
+  .columns.feature .columns-row-no-media {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .columns.feature .columns-row:not(:first-child) {
+    margin-top: var(--space-12);
+  }
+}
+
+@media (width >= 1272px) {
+  .columns.feature .columns-row:not(.columns-row-no-media) {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   }
 }
